@@ -1,0 +1,63 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "Build GTAV Recorder (x64)",
+            "type": "shell",
+            "command": "cl.exe",
+            "args": [
+                "/EHsc",                    // 异常处理
+                "/nologo",                  // 不显示版权信息
+                "/W4",                      // 警告级别
+                "/O2",                      // 优化级别（Release）
+                "/MD",                      // 多线程 DLL 运行时
+                "/D_CRT_SECURE_NO_WARNINGS", // 禁用安全警告
+                "/D_WINDOWS",               // Windows 平台定义
+                "/D_USRDLL",                // DLL 定义
+                "/I", "${workspaceFolder}/SDK/inc",  // 包含路径
+                "/Fe:", "${workspaceFolder}/GTAV_Recorder_Phase1.asi",  // 输出文件名（关键！必须是.asi）
+                "/Fo:", "${workspaceFolder}/build/",   // 中间文件目录
+                "/LD",                      // 生成 DLL（关键！）
+                "${workspaceFolder}/src/main.cpp",     // 源文件
+                "user32.lib",               // Windows API 库
+                "kernel32.lib",
+                "shell32.lib"
+            ],
+            "options": {
+                "cwd": "${workspaceFolder}"
+            },
+            "problemMatcher": ["$msCompile"],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "detail": "使用 MSVC 编译为 ASI 插件（x64 DLL）"
+        },
+        {
+            "label": "Build (Debug)",
+            "type": "shell",
+            "command": "cl.exe",
+            "args": [
+                "/EHsc",
+                "/nologo",
+                "/W4",
+                "/Od",                      // 无优化（Debug）
+                "/MDd",                     // Debug 运行时
+                "/Zi",                      // 调试信息
+                "/D_CRT_SECURE_NO_WARNINGS",
+                "/I", "${workspaceFolder}/SDK/inc",
+                "/Fe:", "${workspaceFolder}/GTAV_Recorder_Phase1.asi",
+                "/Fo:", "${workspaceFolder}/build/",
+                "/LD",
+                "${workspaceFolder}/src/main.cpp",
+                "user32.lib",
+                "kernel32.lib"
+            ],
+            "options": {
+                "cwd": "${workspaceFolder}"
+            },
+            "problemMatcher": ["$msCompile"],
+            "group": "build"
+        }
+    ]
+}

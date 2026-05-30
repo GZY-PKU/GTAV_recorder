@@ -1,0 +1,9 @@
+.vs/ 
+*.ipch 
+*.pch 
+*.obj 
+*.pdb 
+*.iobj 
+*.ipdb 
+*.tlog 
+x64/Release/ 

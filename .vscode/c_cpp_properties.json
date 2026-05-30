@@ -1,0 +1,22 @@
+{
+    "configurations": [
+        {
+            "name": "Win32",
+            "includePath": [
+                "${workspaceFolder}/SDK/inc/**",    // SDK 头文件路径
+                "C:/Program Files (x86)/Windows Kits/10/Include/**",  // Windows SDK
+                "C:/Program Files/Microsoft Visual Studio/2022/Community/VC/Tools/MSVC/*/include"
+            ],
+            "defines": [
+                "_CRT_SECURE_NO_WARNINGS",
+                "_WINDOWS",
+                "_USRDLL"
+            ],
+            "compilerPath": "C:/Program Files/Microsoft Visual Studio/2022/Community/VC/Tools/MSVC/14.39.33519/bin/Hostx64/x64/cl.exe",
+            "cStandard": "c17",
+            "cppStandard": "c++17",
+            "intelliSenseMode": "windows-msvc-x64"
+        }
+    ],
+    "version": 4
+}
